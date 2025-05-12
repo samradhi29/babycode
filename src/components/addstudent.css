@@ -1,0 +1,89 @@
+/* Container for Add Student form */
+.add-student-container {
+  background-color: #181818; /* Dark background */
+  color: #fff; /* White text */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Header */
+.add-student-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Error message */
+.error {
+  color: #f44336; /* Red color for error */
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Form styling */
+.add-student-form {
+  background-color: #242424; /* Slightly lighter background */
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Input and textarea fields */
+.add-student-form input,
+.add-student-form textarea {
+  background-color: #333; /* Darker background for inputs */
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Placeholder text color */
+.add-student-form input::placeholder,
+.add-student-form textarea::placeholder {
+  color: #bbb; /* Light gray color for placeholder */
+}
+
+/* Input and textarea focus styles */
+.add-student-form input:focus,
+.add-student-form textarea:focus {
+  border-color: #4fd1c5; /* Greenish color when focused */
+  outline: none;
+}
+
+/* Submit button */
+.add-student-form button {
+  background-color: #4fd1c5; /* Vibrant teal */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.add-student-form button:hover {
+  background-color: #38b2b8; /* Slightly darker teal on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .add-student-form {
+    padding: 20px;
+  }
+
+  .add-student-container h2 {
+    font-size: 1.5rem;
+  }
+}
