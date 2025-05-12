@@ -12,11 +12,21 @@ export default function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleRedirectAfterLogin = () => {
+    const redirectId = localStorage.getItem("redirectToStudentId");
+    if (redirectId) {
+      localStorage.removeItem("redirectToStudentId");
+      navigate(`/student/${redirectId}`);
+    } else {
+      navigate("/"); // default page after login
+    }
+  };
+
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(formData.email, formData.password);
-      navigate("/");
+      handleRedirectAfterLogin();
     } catch (err) {
       setError("Failed to login. Check your credentials.");
     }
@@ -25,7 +35,7 @@ export default function Login() {
   const handleGoogleLogin = async () => {
     try {
       await dosignInwithgoogle();
-      navigate("/");
+      handleRedirectAfterLogin();
     } catch (err) {
       setError("Google login failed.");
     }
@@ -61,4 +71,5 @@ export default function Login() {
       </div>
     </div>
   );
+  
 }

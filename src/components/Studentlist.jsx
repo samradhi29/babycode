@@ -11,7 +11,6 @@ export default function StudentList() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axios.get("/api/students").then((res) => setStudents(res.data));
   }, []);
@@ -28,11 +27,11 @@ export default function StudentList() {
 
   const handleCardClick = (student) => {
     if (!currentUser) {
-      // remember where to go after login
+      alert("Please log in to view student details.");
       localStorage.setItem("redirectToStudentId", student.id);
       navigate("/login");
     } else {
-      navigate(`/student/${student.id}`); // adjust if your details route differs
+      navigate(`/student/${student.id}`);
     }
   };
 
