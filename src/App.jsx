@@ -4,7 +4,7 @@ import Register from "./components/auth/Register";
 import Addstudent from "./components/Addstudent";
 import Studentlist from "./components/Studentlist";
 import Navbar from './components/Navbar';
-import SignOut from "./components/auth/Signout";
+import SignOut from "./components/auth/SignOut";
 import ProtectedRoute from "./components/ProtectedRoute";
 import './App.css';
 import StudentDetail from "./components/StudentDetail";
