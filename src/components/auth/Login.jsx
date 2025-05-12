@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { doSignInWithEmailAndPassword, dosignInwithgoogle } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
-import './Login.css';  // Import the newly created CSS file
+import './Login.css';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(formData.email, formData.password);
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       setError("Failed to login. Check your credentials.");
     }
@@ -25,7 +25,7 @@ export default function Login() {
   const handleGoogleLogin = async () => {
     try {
       await dosignInwithgoogle();
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       setError("Google login failed.");
     }

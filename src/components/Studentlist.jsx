@@ -1,4 +1,3 @@
-// src/pages/StudentList.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authcontext";
@@ -12,28 +11,28 @@ export default function StudentList() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
+
   useEffect(() => {
-    axios.get("/api/students").then((res) => {
-      setStudents(res.data);
-    });
+    axios.get("/api/students").then((res) => setStudents(res.data));
   }, []);
 
-  const filteredStudents = filter
+  const dataAfterFilter = filter
     ? students.filter((s) => s.course.toLowerCase() === filter.toLowerCase())
     : students;
 
-  const searchedStudents = search
-    ? filteredStudents.filter((s) =>
+  const dataAfterSearch = search
+    ? dataAfterFilter.filter((s) =>
         s.name.toLowerCase().includes(search.toLowerCase())
       )
-    : filteredStudents;
+    : dataAfterFilter;
 
   const handleCardClick = (student) => {
     if (!currentUser) {
+      // remember where to go after login
       localStorage.setItem("redirectToStudentId", student.id);
       navigate("/login");
     } else {
-      navigate(`/student/${student.id}`);
+      navigate(`/student/${student.id}`); // adjust if your details route differs
     }
   };
 
@@ -59,7 +58,7 @@ export default function StudentList() {
       </select>
 
       <div className="card-container">
-        {searchedStudents.map((student) => (
+        {dataAfterSearch.map((student) => (
           <div
             key={student.id}
             onClick={() => handleCardClick(student)}

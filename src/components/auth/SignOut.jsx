@@ -1,5 +1,5 @@
 
-// src/components/SignOut.js
+
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dosignOut } from "../../firebase/auth";

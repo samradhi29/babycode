@@ -17,7 +17,7 @@ export default function Register() {
     e.preventDefault();
     try {
       await doCreateUserWithEmailAndPassword(formData.email, formData.password);
-      navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       setError("Registration failed. Try a different email.");
     }
